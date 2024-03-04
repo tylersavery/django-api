@@ -1,8 +1,10 @@
 dj_database_url==2.1.0
 django-environ==0.11.2
 Django==5.0.3
+django-admin-interface==0.28.5
+django-admin-autocomplete-filter==0.7.1
 djangorestframework==3.14.0
-gunicorn==21.2.0
 psycopg2==2.9.9
 redis==5.0.2
 whitenoise==6.6.0
+gunicorn==21.2.0
