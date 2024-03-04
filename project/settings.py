@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "common.apps.CommonConfig",
     "access.apps.AccessConfig",
+    "content.apps.ContentConfig",
+    "api.apps.ApiConfig",
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,8 @@ REDIS_URL = ENV.str("REDIS_URL")
 
 
 AUTH_USER_MODEL = "access.User"
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
+}
