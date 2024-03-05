@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "bfe571b8-2659-4f9b-aeba-2f391edc5b66",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "705331"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Token",
+					"item": [
+						{
+							"name": "Create Token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.expect(pm.response.code).to.eql(200);",
+											"const result = pm.response.json();",
+											"pm.environment.set(\"access_token\", result[\"access\"]);",
+											"pm.environment.set(\"refresh_token\", result[\"refresh\"]);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "admin@tylersavery.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "younotry",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{api_base_url}}/auth/token/",
+									"host": [
+										"{{api_base_url}}"
+									],
+									"path": [
+										"auth",
+										"token",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "List Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_base_url}}/post/",
+							"host": [
+								"{{api_base_url}}"
+							],
+							"path": [
+								"post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List My Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_base_url}}/post/me/",
+							"host": [
+								"{{api_base_url}}"
+							],
+							"path": [
+								"post",
+								"me",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_base_url}}/post/:uuid/",
+							"host": [
+								"{{api_base_url}}"
+							],
+							"path": [
+								"post",
+								":uuid",
+								""
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "6c726780-d8a4-4ecb-aa2a-fc38f08b451a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
