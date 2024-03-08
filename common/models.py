@@ -7,7 +7,7 @@ class AbstractModel(models.Model):
 
     uuid = models.UUIDField(
         _("UUID"),
-        default=uuid.uuid4(),
+        default=uuid.uuid4,
         unique=True,
         editable=False,
         db_index=True,

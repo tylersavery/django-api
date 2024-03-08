@@ -11,6 +11,7 @@ class PostSerializer(serializers.ModelSerializer):
             "uuid",
             "title",
             "body",
+            "status",
             "created_at",
         ]
 
