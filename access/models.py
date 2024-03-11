@@ -42,6 +42,8 @@ class User(AbstractModel, AbstractBaseUser):
         default=False,
     )
 
+    bio = models.TextField(blank=True)
+
     USERNAME_FIELD = "email"
 
     objects = UserManager()

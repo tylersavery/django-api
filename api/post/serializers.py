@@ -1,8 +1,11 @@
 from rest_framework import serializers
 from content.models import Post
+from api.user.serializers import UserPublicSerializer
 
 
 class PostSerializer(serializers.ModelSerializer):
+
+    owner = UserPublicSerializer(read_only=True)
 
     class Meta:
         model = Post
@@ -10,6 +13,7 @@ class PostSerializer(serializers.ModelSerializer):
             "id",
             "uuid",
             "title",
+            "owner",
             "body",
             "status",
             "created_at",
@@ -18,6 +22,7 @@ class PostSerializer(serializers.ModelSerializer):
         read_only_fields = [
             "id",
             "uuid",
+            "owner",
             "owner",
             "created_at",
         ]

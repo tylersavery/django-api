@@ -39,8 +39,9 @@ class UserAdmin(BaseUserAdmin):
             _("Details"),
             {
                 "fields": [
-                    "name",
                     "email",
+                    "name",
+                    "bio",
                 ]
             },
         ),
@@ -57,8 +58,9 @@ class UserAdmin(BaseUserAdmin):
                 "fields": [
                     "id",
                     "uuid",
-                    "name",
                     "email",
+                    "name",
+                    "bio",
                 ]
             },
         ),
