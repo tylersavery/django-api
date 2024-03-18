@@ -23,6 +23,5 @@ class PostSerializer(serializers.ModelSerializer):
             "id",
             "uuid",
             "owner",
-            "owner",
             "created_at",
         ]

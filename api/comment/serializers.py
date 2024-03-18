@@ -12,12 +12,14 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = [
+            "id",
             "uuid",
             "owner",
             "body",
             "created_at",
         ]
         read_only_fields = [
+            "id",
             "uuid",
             "owner",
             "created_at",
